@@ -29,12 +29,13 @@ title('noisy image');
 axis('square');
 colormap gray;
 axis off;
-printPmtkFigure('isingImageDenoise');
+% printPmtkFigure('isingImageDenoise');
 %%
 % H = rate of half, 1 = rate of 1 (no damping)
 % IP = in-place (sequential) updates, otherwise parallel updates
 methods = {'Gibbs', 'MeanfieldH', 'MeanfieldHIP', 'Meanfield1', 'Meanfield1IP'};
 methods = {'Gibbs','meanfieldH'};
+methods = {'meanfieldH'};
 
 for m=1:length(methods)
     method = methods{m};
@@ -63,7 +64,7 @@ for m=1:length(methods)
     title(sprintf('mean after %d sweeps of %s', maxIter, method));
     axis('square');
     axis off;
-    printPmtkFigure(sprintf('isingImageDenoise%sMean', method));
+%     printPmtkFigure(sprintf('isingImageDenoise%sMean', method));
 end
 
 end
@@ -78,6 +79,6 @@ if any(iter == [ 1, 3, 5])
     axis off; 
     colorbar;
     title(sprintf('sample %d, %s', iter, method));
-    printPmtkFigure(sprintf('isingImageDenoise%s%d', method, iter));
+%     printPmtkFigure(sprintf('isingImageDenoise%s%d', method, iter));
 end
 end
